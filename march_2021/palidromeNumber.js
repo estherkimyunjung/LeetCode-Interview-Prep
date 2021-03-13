@@ -38,16 +38,20 @@
 // };
 
 const isPalindrome = (x) => {
-  if (x < 0) {
-    return console.log(false);
-  }
+  if (x < 0) return console.log(false);
+
+  //TERNARY
+  reverse(x) === x ? console.log(true) : console.log(false);
+};
+
+const reverse = (x) => {
   let reverse = parseInt(
     x
       .toString()
       .split("")
       .reduce((rev, char) => char + rev, "")
   );
-  reverse === x ? console.log(true) : console.log(false);
+  return reverse;
 };
 
 isPalindrome(101);
