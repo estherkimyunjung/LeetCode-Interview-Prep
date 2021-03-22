@@ -38,6 +38,70 @@
 //   return console.log(prefix);
 // };
 
+// class TrieNode {
+//   constructor() {
+//     this.children = new Array(26);
+//     this.isEnd = false;
+//   }
+
+//   getLinks() {
+//     let cur = this;
+//     let count = 0;
+//     for (let i = 0; i < cur.children.length; i++) {
+//       if (cur.children[i]) {
+//         count++;
+//       }
+//     }
+//     return count;
+//   }
+
+//   getCurLetter() {
+//     let cur = this;
+//     let curLetter = "";
+//     for (let i = 0; i < cur.children.length; i++) {
+//       if (cur.children[i]) {
+//         curLetter = String.fromCharCode(i + 97);
+//       }
+//     }
+//     return curLetter;
+//   }
+// }
+// let root;
+
+// var buildTrie = function (word) {
+//   let cur = root;
+//   for (let i = 0; i < word.length; i++) {
+//     let ch = word[i];
+//     if (!cur.children[ch.charCodeAt(0) - "a".charCodeAt(0)]) {
+//       cur.children[ch.charCodeAt(0) - "a".charCodeAt(0)] = new TrieNode();
+//     }
+//     cur = cur.children[ch.charCodeAt(0) - "a".charCodeAt(0)];
+//   }
+//   cur.isEnd = true;
+// };
+// var longestCommonPrefix = function (strs) {
+//   root = new TrieNode();
+//   let maxLength = 0;
+//   let maxStr = "";
+//   for (let str of strs) {
+//     buildTrie(str);
+//     if (str.length > maxLength) {
+//       maxStr = str;
+//       maxLength = str.length;
+//     }
+//   }
+
+//   let result = "";
+//   let i = 0;
+
+//   while (root && i < maxLength && root.getLinks() === 1 && !root.isEnd) {
+//     result += root.getCurLetter();
+//     root = root.children[root.getCurLetter().charCodeAt(0) - "a".charCodeAt(0)];
+//   }
+
+//   return result;
+// };
+
 var longestCommonPrefix = function (strs) {
   return trieSolution(strs);
 };
