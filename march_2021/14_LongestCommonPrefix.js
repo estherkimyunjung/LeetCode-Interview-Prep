@@ -29,12 +29,68 @@
 //   }
 // };
 
-const longestCommonPrefix = (str, prefix = "", j = 0) => {
-  if (!str.length) return "";
+// const longestCommonPrefix = (str, prefix = "", j = 0) => {
+//   if (!str.length) return "";
 
-  while (str[0][j] && str.every((_, i) => str[0][j] === str[i][j]))
-    prefix += str[0][j++];
+//   while (str[0][j] && str.every((_, i) => str[0][j] === str[i][j]))
+//     prefix += str[0][j++];
 
+//   return console.log(prefix);
+// };
+
+var longestCommonPrefix = function (strs) {
+  return trieSolution(strs);
+};
+
+/*
+T = O(S)
+S = O(S)
+*/
+const trieSolution = (strs) => {
+  const trie = new Trie();
+  for (let str of strs) {
+    // Edge case: In case of a string is an empty string, the prefix would be emptry string
+    if (str === "") {
+      return "";
+    }
+    trie.insert(str);
+  }
+  return trie.getPrefix();
+};
+
+function TrieNode() {
+  this.isEnd = false;
+  this.children = new Map();
+}
+
+function Trie() {
+  this.root = new TrieNode();
+}
+
+Trie.prototype.insert = function insert(str) {
+  let node = this.root;
+  for (const char of str) {
+    if (!node.children.has(char)) {
+      node.children.set(char, new TrieNode());
+    }
+    node = node.children.get(char);
+  }
+  node.isEnd = true;
+};
+
+Trie.prototype.getPrefix = function getPrefix() {
+  let prefix = "";
+  const stack = [this.root];
+  while (stack.length > 0) {
+    const node = stack.pop();
+    if (node.children.size !== 1 || node.isEnd) {
+      return console.log(prefix);
+    }
+    node.children.forEach((childNode, childKey) => {
+      prefix += childKey;
+      stack.push(childNode);
+    });
+  }
   return console.log(prefix);
 };
 
