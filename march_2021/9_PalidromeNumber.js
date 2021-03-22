@@ -40,7 +40,7 @@
 const isPalindrome = (x) => {
   if (x < 0) return console.log(false);
 
-  //TERNARY
+  //TERNARY Operator
   reverse(x) === x ? console.log(true) : console.log(false);
 };
 
