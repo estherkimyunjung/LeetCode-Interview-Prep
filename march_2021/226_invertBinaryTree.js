@@ -9,7 +9,7 @@ const invertTree = (root) => {
     root.left = root.right;
     root.right = temp;
   }
-  return root;
+  return console.log(root);
 };
 
 // const invertTree = (root) => {
@@ -31,3 +31,5 @@ const invertTree = (root) => {
 //     }
 //     return head;
 // };
+
+//invertTree((root = [4, 2, 7, 1, 3, 6, 9]));
