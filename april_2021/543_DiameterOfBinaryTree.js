@@ -12,7 +12,8 @@ const diamterOfBinaryTree = function (root) {
     let right = depth(node.right);
 
     maxDepth = Math.max(maxDepth, left + right);
-    return left + right + 1;
+    // return left + right + 1;
+    return Math.max(left, right) + 1;
   };
 
   depth(root);
