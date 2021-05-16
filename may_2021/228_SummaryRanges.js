@@ -19,8 +19,8 @@
 
 const summaryRange = (nums) => {
   const output = [];
-  let lower = 0;
-  for (let upper = 0; upper < nums.length; upper++) {
+  let lower = nums[0];
+  for (let upper = nums[0]; upper < nums.length; upper++) {
     if (nums[upper + 1] === nums[upper] + 1) continue;
     else {
       if (lower === upper) output.push(nums[lower] + "");
@@ -34,3 +34,6 @@ const summaryRange = (nums) => {
 
 summaryRange([0, 1, 2, 4, 5, 7]);
 summaryRange([0, 2, 3, 4, 6]);
+summaryRange([]);
+summaryRange([-1]);
+summaryRange([0]);
