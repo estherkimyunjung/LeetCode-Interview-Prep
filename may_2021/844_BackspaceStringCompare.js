@@ -18,20 +18,37 @@
 // Output: false
 // Explanation: s becomes "c" while t becomes "b".
 
+// 3rd Solution (Time:O(n) Space:O(n))
 const backspaceCompare = (s, t) => {
-  const outputS = [];
-  const outputT = [];
+  const newString = (string) => {
+    const output = [];
 
-  for (let i = 0; i < Math.max(s.length, t.length); i++) {
-    if (s[i] === "#") outputS.pop();
-    if (t[i] === "#") outputT.pop();
-
-    if (s[i] !== "#") outputS.push(s[i]);
-    if (t[i] !== "#") outputT.push(t[i]);
-  }
-
-  return console.log(outputS.join("") === outputT.join(""));
+    for (let i = 0; i < s.length; i++) {
+      if (string[i] === "#") output.pop();
+      else output.push(string[i]);
+    }
+    return output.join(" ");
+  };
+  return console.log(newString(s) === newString(t));
 };
+
+// 2nd Solution (Time:O(n,m) -> Max of m or m, Space:O(n+m))
+// const backspaceCompare = (s, t) => {
+//   const outputS = [];
+//   const outputT = [];
+
+//   for (let i = 0; i < Math.max(s.length, t.length); i++) {
+//     if (s[i] === "#") outputS.pop();
+//     if (t[i] === "#") outputT.pop();
+
+//     if (s[i] !== "#") outputS.push(s[i]);
+//     if (t[i] !== "#") outputT.push(t[i]);
+//   }
+
+//   return console.log(outputS.join("") === outputT.join(""));
+// };
+
+// 1st Solution (Time:O(n+m), Space:O(n+m))
 
 // const backspaceCompare = (s, t) => {
 //   const outputS = [];
