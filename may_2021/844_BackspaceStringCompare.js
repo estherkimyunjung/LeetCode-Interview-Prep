@@ -22,17 +22,32 @@ const backspaceCompare = (s, t) => {
   const outputS = [];
   const outputT = [];
 
-  for (let i = 0; i < s.length; i++) {
+  for (let i = 0; i < Math.max(s.length, t.length); i++) {
     if (s[i] === "#") outputS.pop();
-    else outputS.push(s[i]);
+    if (t[i] === "#") outputT.pop();
+
+    if (s[i] !== "#") outputS.push(s[i]);
+    if (t[i] !== "#") outputT.push(t[i]);
   }
 
-  for (let i = 0; i < s.length; i++) {
-    if (t[i] === "#") outputT.pop();
-    else outputT.push(t[i]);
-  }
   return console.log(outputS.join("") === outputT.join(""));
 };
+
+// const backspaceCompare = (s, t) => {
+//   const outputS = [];
+//   const outputT = [];
+
+//   for (let i = 0; i < s.length; i++) {
+//     if (s[i] === "#") outputS.pop();
+//     else outputS.push(s[i]);
+//   }
+
+//   for (let i = 0; i < s.length; i++) {
+//     if (t[i] === "#") outputT.pop();
+//     else outputT.push(t[i]);
+//   }
+//   return console.log(outputS.join("") === outputT.join(""));
+// };
 
 backspaceCompare("a#c", "b");
 backspaceCompare("a##c", "#a#c");
