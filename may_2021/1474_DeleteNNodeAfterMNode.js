@@ -1,4 +1,4 @@
-var util = require("util");
+const util = require("util");
 // console.log(util.inspect(console));
 
 // Give the head of linked list and two integers m and n.
@@ -55,8 +55,8 @@ class SLL {
         count = 0;
       }
       if (!current.next && m - count < 0) {
-        console.log("current", current);
-        console.log("m-count", m - count);
+        console.log("current :", current);
+        console.log("m-count :", m - count);
         keepNode.next = null;
       }
       current = current.next;
