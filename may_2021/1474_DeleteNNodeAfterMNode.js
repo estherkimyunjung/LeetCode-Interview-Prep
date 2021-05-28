@@ -65,14 +65,6 @@ class SLL {
 
     return this.head;
   }
-
-  deleteNode2(m, n) {
-    let current = this.head;
-  }
-
-  deleteNode3(m, n) {
-    let current = this.head;
-  }
 }
 
 const sll1 = new SLL([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
