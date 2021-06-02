@@ -1,4 +1,8 @@
+const util = require("util");
+
 // Design a logger system that receives a stream of messages along with their timestamp. Each unique messages should only be printed ar most every 10 seconds(i.e. a message printed at timestamp t will prevent other identical messages from being printed until timestamp t+10)
+
+const { timeStamp } = require("node:console");
 
 // All messages will come in chronological order. Several messages may arrive at the same timestamp.
 
@@ -27,3 +31,41 @@
 // Every timestamp will be passed in non-decreasing order (chronological order).
 // 1 <= message.length <= 30
 // At monst 104 calls will be made to shouldPrintMessage.
+
+// Time: O(1)
+// Space: O(N)
+
+class Logger {
+  constructor() {}
+
+  // Return true if the message should be printed in the given timestamp, otherwise return false.
+  //   If this method return false, the message will be not printed.
+  //   The timestamp is in seconds granularity.
+  // @param {number} timestamp
+  // @param {string} message
+  // @return {boolean}
+
+  shouldPrintMessage(timeStamp, message) {
+    if (this[message] === undefined) {
+      this[message] = timeStamp;
+
+      return true;
+    }
+  }
+}
+
+// Your Logger object will be instanted and called as such
+
+const obj = new Logger();
+
+// const param_1 = obj.shouldPrintMessage(timeStamp,message)
+// [null, true, true, false, false, true]
+
+console.log(obj.shouldPrintMessage(1, "foo"));
+console.log(obj.shouldPrintMessage(2, "bar"));
+console.log(obj.shouldPrintMessage(3, "foo"));
+console.log(obj.shouldPrintMessage(8, "bar"));
+console.log(obj.shouldPrintMessage(10, "foo"));
+console.log(obj.shouldPrintMessage(11, "foo"));
+
+console.log(obj);
