@@ -1,8 +1,4 @@
-const util = require("util");
-
 // Design a logger system that receives a stream of messages along with their timestamp. Each unique messages should only be printed ar most every 10 seconds(i.e. a message printed at timestamp t will prevent other identical messages from being printed until timestamp t+10)
-
-const { timeStamp } = require("node:console");
 
 // All messages will come in chronological order. Several messages may arrive at the same timestamp.
 
