@@ -21,3 +21,46 @@
 // Example 4:
 // Input: moves = "LDRRLRUULR"
 // Output: false
+
+// Time: O()
+// Space: O()
+
+const judgeCricle = (moves) => {
+  let [x, y] = [0, 0];
+
+  for (let i = 0; i < moves.length; i++) {
+    switch (moves[i]) {
+      case "R":
+        x++;
+        break;
+      case "L":
+        x--;
+        break;
+      case "U":
+        y++;
+        break;
+      case "D":
+        y--;
+        break;
+    }
+  }
+  return console.log(!x && !y);
+};
+
+// 1 solution
+// const judgeCricle = (moves) => {
+//   let [x, y] = [0, 0];
+
+//   for (let i = 0; i < moves.length; i++) {
+//     if (moves[i] === "R") x++;
+//     if (moves[i] === "L") x--;
+//     if (moves[i] === "U") y++;
+//     if (moves[i] === "D") y--;
+//   }
+//   return console.log(!x && !y);
+// };
+
+judgeCricle("UD");
+judgeCricle("LLRR");
+judgeCricle("RRDD");
+judgeCricle("LDRRLRUULR");
