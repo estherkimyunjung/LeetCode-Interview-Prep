@@ -7,8 +7,10 @@
 //   if(haystack.includes(needle)){
 //       let needleArr = haystack.split(needle)
 //       return needleArr[0].length
-//     }if(!haystack.includes(needle)) return -1
-//   };
+//   } else {
+//       return -1
+//   }
+// };
 
 const strStr = (haystack, needle) => {
   let needleLen = needle.length,
