@@ -1,14 +1,13 @@
 // const strStr = (haystack, needle) => needle ? haystack.split(needle)[0].length === haystack.length ? -1 : haystack.split(needle)[0].length : 0
 
 // const strStr = (haystack, needle) => {
+//   if (needle === "") return 0;
 
-//   if(needle === "" ) return 0
-
-//   if(haystack.includes(needle)){
-//       let needleArr = haystack.split(needle)
-//       return needleArr[0].length
+//   if (haystack.includes(needle)) {
+//     let needleArr = haystack.split(needle);
+//     return needleArr[0].length;
 //   } else {
-//       return -1
+//     return -1;
 //   }
 // };
 
