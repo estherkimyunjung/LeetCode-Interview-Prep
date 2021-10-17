@@ -19,24 +19,35 @@
 // exactly one solution,
 // return index(index start at 1)
 
+// const twoSum = (numbers, target) => {
+//   if (numbers.length < 2) {
+//     console.log("undefined");
+//     return null;
+//   }
+
+//   let firstPointer = 0,
+//     secondPointer = numbers.length - 1;
+
+//   while (firstPointer < secondPointer) {
+//     if (numbers[firstPointer] + numbers[secondPointer] === target) {
+//       console.log([firstPointer + 1, secondPointer + 1]);
+//       return [firstPointer + 1, secondPointer + 1];
+//     } else if (numbers[firstPointer] + numbers[secondPointer] > target) {
+//       secondPointer--;
+//     } else {
+//       firstPointer++;
+//     }
+//   }
+// };
+
 const twoSum = (numbers, target) => {
-  if (numbers.length < 2) {
-    console.log("undefined");
-    return null;
-  }
-
-  let firstPointer = 0,
-    secondPointer = numbers.length - 1;
-
-  while (firstPointer < secondPointer) {
-    if (numbers[firstPointer] + numbers[secondPointer] === target) {
-      console.log([firstPointer + 1, secondPointer + 1]);
-      return [firstPointer + 1, secondPointer + 1];
-    } else if (numbers[firstPointer] + numbers[secondPointer] > target) {
-      secondPointer--;
-    } else {
-      firstPointer++;
-    }
+  let left = 0;
+  let right = numbers.length - 1;
+  while (left < right) {
+    sum = numbers[left] + numbers[right];
+    if (sum === target) return [left + 1, right + 1];
+    if (sum < target) left++;
+    if (sum > target) right--;
   }
 };
 
