@@ -20,6 +20,11 @@
 // return index(index start at 1)
 
 const twoSum = (numbers, target) => {
+  if (numbers.length < 2) {
+    console.log("undefined");
+    return null;
+  }
+
   let firstPointer = 0,
     secondPointer = numbers.length - 1;
 
@@ -37,3 +42,4 @@ const twoSum = (numbers, target) => {
 
 twoSum([2, 7, 11, 15], 9);
 twoSum([2, 3, 4], 6);
+twoSum([2], 6);
