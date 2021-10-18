@@ -16,31 +16,31 @@
 
 // array -> f -> array
 
-// const removeDuplicates = (nums) => {
-//   let k = nums.length;
-//   for (let i = 0; i < nums.length; i++) {
-//     if (nums[i] === nums[i + 1]) {
-//       nums[i + 1] = null;
-//       if (nums[i + 1] === null)
-//         [nums[i + 1], nums[i + 2]] = [nums[i + 2], nums[i + 1]];
-//       i++;
-//       k--;
-//     } else {
-//       i++;
-//     }
-//   }
-//   return console.log(nums);
-// };
-
 const removeDuplicates = (nums) => {
-  nums.forEach((element, i) => {
-    if (element === nums[i + 1]) {
-      nums.splice(i + 1, 1);
-      removeDuplicates(nums);
+  // console.log(nums);
+  if (nums.length === 0) return 0;
+
+  let i = 0;
+  for (let j = 1; j < nums.length; j++) {
+    if (nums[i] !== nums[j]) {
+      i++;
+      nums[i] = nums[j];
     }
-  });
-  return console.log(nums);
+  }
+  console.log(nums);
+  return console.log(i + 1);
 };
+
+// const removeDuplicates = (nums) => {
+//   nums.forEach((element, i) => {
+//     if (element === nums[i + 1]) {
+//       nums.splice(i + 1, 1);
+//       removeDuplicates(nums);
+//     }
+//   });
+//   console.log(nums);
+//   return console.log(nums.length);
+// };
 
 removeDuplicates([1, 1, 2]);
 removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]);
