@@ -28,7 +28,7 @@ const isValid = (str) => {
     ["[", "]"],
   ]);
   // iterate over input
-  for (let element of str) {
+  for (const element of str) {
     // if open bracket push to stack
     if (parenthesesMap.has(element)) {
       stack.push(element);
