@@ -8,10 +8,46 @@
 // 3. 10 -> false
 
 // const isPalindrome = (x) => {
+//   if (x < 0) return console.log(false);
 //   let reverseX = x.toString().split("").reverse().join("");
-//   // console.log(reverseX);
+//   console.log(reverseX);
 
 //   return console.log(x === parseInt(reverseX));
+// };
+
+const isPalindrome = (x) => {
+  x = "" + x; //convert number to string
+  let left = 0,
+    right = x.length - 1; //moving from both limits to the center
+
+  while (left <= right) {
+    //iteration only while  left != right and both less equal to n/2
+    if (x[left] !== x[right]) return console.log(false); //at the first error drop
+    left++;
+    right--;
+  }
+
+  return console.log(true);
+};
+
+// var isPalindrome = function (x) {
+//   var str = "" + x;
+
+//   for (var i = 0; i < Math.floor(str.length / 2); i++) {
+//     if (str[i] != str[str.length - i - 1]) return console.log(false);
+//   }
+
+//   return console.log(true);
+// };
+
+// const isPalindrome = (n) => {
+//   if (x < 0) return console.log(false);
+//   let reverseString = n
+//     .toString()
+//     .split("")
+//     .reduce((rev, chat) => chat.concat(rev));
+//   console.log(reverseString);
+//   return console.log(reverseString === n.toString());
 // };
 
 // const isPalindrome = function (x) {
@@ -46,31 +82,6 @@
 //   }
 
 //   return result === x;
-// };
-
-var isPalindrome = function (x) {
-  x = "" + x; //convert number to string
-  let left = 0,
-    right = x.length - 1; //moving from both limits to the center
-
-  while (left <= right) {
-    //iteration only while  left != right and both less equal to n/2
-    if (x[left] !== x[right]) return console.log(false); //at the first error drop
-    left++;
-    right--;
-  }
-
-  return console.log(true);
-};
-
-// var isPalindrome = function (x) {
-//   var str = "" + x;
-
-//   for (var i = 0; i < Math.floor(str.length / 2); i++) {
-//     if (str[i] != str[str.length - i - 1]) return console.log(false);
-//   }
-
-//   return console.log(true);
 // };
 
 isPalindrome(123);
